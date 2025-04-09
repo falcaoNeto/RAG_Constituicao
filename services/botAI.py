@@ -7,15 +7,12 @@ load_dotenv()
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 
-OPENAI_KEY = os.getenv("OPENAI_KEY")
-
-GOOGLE_KEY = os.getenv("GOOGLE_KEY")
+OPENAI_KEY = os.getenv("OPENAI")
 
 @dataclass
 class BotAI:
     collection_name: str = "constituicao"
     llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_KEY)
-    
     vectorStore = Chroma(
     embedding_function=OpenAIEmbeddings(model="text-embedding-3-small", api_key=OPENAI_KEY),
     persist_directory="EmbConstituicao/arquivos/dados",
@@ -31,7 +28,7 @@ class BotAI:
 
         Sempre tente respoder com as informações fornecidas e não faça perguntas que não estejam relacionadas ao contexto.
         NUNCA informe que esta faltando informação que não esteja no contexto.
-        Nunca diga que esta se baseando em documentos
+        Infome de que parte da constituição foi  tirada a informcao usada para responder a pergunta.
         """
 
     def assistente_RAG(self, question):
@@ -56,5 +53,6 @@ class BotAI:
 
 if __name__ == "__main__":
     bot = BotAI()
-    print(bot.assistente_RAG("qual o artigo me garante o direito de ir e vir?"))
+    print(bot.assistente_RAG("Imposto, taxas, contribuição de melhorias e tarifas são exatamente os tipos de tributos previstos na Constituição Federal do Brasil de 1988?"))
 
+    
