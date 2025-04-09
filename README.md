@@ -1,7 +1,3 @@
-Claro, Falcão! Aqui está o README reorganizado, corrigido e com uma linguagem mais fluida e profissional:
-
----
-
 # 📱 Chatbot Constitucional - RAG + WhatsApp
 
 Este projeto é um **chatbot jurídico via WhatsApp**, capaz de responder perguntas relacionadas à **Constituição Federal de 1988**. Ele utiliza uma **LLM (Large Language Model)** integrada com a técnica de **RAG (Retrieval-Augmented Generation)** para buscar trechos relevantes da Constituição antes de gerar as respostas.
